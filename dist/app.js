@@ -23,7 +23,6 @@ const app = {
         push: (data, title, url) => history.pushState(data, title, url),
         replace: (data, title, url) => history.replaceState(data, title, url),
         back: e => {
-            alert(e.state.data.id)
             if (e.state.data.id == 'page/login.htm') {
                 if (!firebase.auth().currentUser) {
                     goTo(e.state.data)
