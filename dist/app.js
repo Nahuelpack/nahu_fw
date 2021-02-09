@@ -31,7 +31,6 @@ const app = {
                 app.state.volver(JSON.parse(app.session('lastState')).id);
                 app.session('lastState', '');
             } else {
-                alert('else')
                 app.state.volver(JSON.parse(app.session('lastState')).id);
                 app.session('lastState', JSON.stringify(e.state.data))
             }
