@@ -37,15 +37,8 @@ const app = {
 
         },
         volver: x => {
-            if (x == 'userinfo') {
-                if ($('.chip').hasClass('card')) {
-                    $('.chip').removeClass('card');
-                    $('.chip').on('click', thisUserInf);
-                }
-            } else {
                 $('#' + x).addClass('closed');
                 setTimeout(() => $('#' + x).remove(), 150);
-            }
 
         }
     },
