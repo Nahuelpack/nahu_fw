@@ -37,8 +37,8 @@ const app = {
 
         },
         volver: x => {
-                $('#' + x).addClass('closed');
-                setTimeout(() => $('#' + x).remove(), 150);
+            $('#' + x).addClass('closed');
+            setTimeout(() => $('#' + x).remove(), 150);
 
         }
     },
@@ -54,6 +54,12 @@ const app = {
                 goTo({ type: 'state', id: a });
             })
             .catch(err => console.log('Intentalo otra vez 😐 ', err))
+    },
+
+    log: {},
+
+    notif: {
+        permission: (window.Notification && Notification.permission !== "denied")? Notification.requestPermission((status) => 'Notif: ' + status) : 'Notifications denied'  
     }
 
 }
