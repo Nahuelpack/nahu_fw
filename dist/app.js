@@ -61,7 +61,7 @@ const app = {
     notif: {
         permission: (window.Notification && Notification.permission !== "denied") ? Notification.requestPermission((status) => 'Notif: ' + status) : 'Notifications denied'
     },
-    sendmail: (to, sub, body) => Email.send({ SecureToken: "ec551810-4c3a-4472-bbba-37e8ba7098ff", To: to, From: "no-reply@arbusta.net", Subject: sub, Body: body }).then(() => true).catch(() => false)
+    sendmail: (to, sub, body) => Email.send({ SecureToken: "d843a4af-2032-48a8-b215-d9fe823f3cfb", To: to, From: "no-reply@arbusta.net", Subject: sub, Body: body }).then(() => true).catch(() => false)
 
 }
 
