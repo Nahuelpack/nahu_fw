@@ -61,6 +61,20 @@ const app = {
     notif: {
         permission: (window.Notification && Notification.permission !== "denied") ? Notification.requestPermission((status) => 'Notif: ' + status) : 'Notifications denied'
     },
+    notify: async (msg) => {
+        if ($('#snackbar').hasClass('show')) {
+            setTimeout(() => {
+                app.notif(msg)
+            }, 300)
+        } else {
+            $('#snackbar').html(msg);
+            $('#snackbar').addClass('show');
+            setTimeout(() => {
+                $('#snackbar').removeClass('show');
+                $('#snackbar').html('');
+            }, 2500);
+        }
+    },
     sendmail: (to, sub, body) => Email.send({ SecureToken: "d843a4af-2032-48a8-b215-d9fe823f3cfb", To: to, From: "no-reply@arbusta.net", Subject: sub, Body: body }).then((mes) => { return mes }).catch((err) => { return err })
 
 }
