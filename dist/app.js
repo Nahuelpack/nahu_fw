@@ -75,6 +75,23 @@ const app = {
             }, 2500);
         }
     },
+     input: {
+        format: () => {
+            const ainp = $('.ainp');
+            for (let i = 0; i < ainp.length; i++) {
+                var esto = ainp[i], att = esto.attributes, id = (!esto.id) ? 'ainput' + i : esto.id, attrs = '';
+                for (let i = 0; i < att.length; i++) {
+                    if (att[i].nodeName != 'style' && att[i].nodeName != 'type' && att[i].nodeName != 'class' && att[i].nodeName != 'placeholder') {
+                        attrs += att[i].nodeName + '="' + att[i].nodeValue + '" ';
+                    }
+                }
+                $(esto).replaceWith('<div class="ainput" style="' + att['style'].nodeValue + '"><input type="' + esto.type + '" id="' + id + '" name="' + esto.name + '" style="width:100%" ' + attrs + '><div class="placeh">' + esto.placeholder + '</div></div>');
+            }
+        }
+    },
+    standalone: () => {
+        return ((window.navigator.standalone == true) || (window.matchMedia('(display-mode: standalone)').matches))
+    },
     sendmail: (to, sub, body) => Email.send({ SecureToken: "d843a4af-2032-48a8-b215-d9fe823f3cfb", To: to, From: "no-reply@arbusta.net", Subject: sub, Body: body }).then((mes) => { return mes }).catch((err) => { return err })
 
 }
@@ -192,6 +209,6 @@ var Email = { send: (a) => { return new Promise((n, e) => { a.nocache = Math.flo
                 document.head.insertBefore(a, document.head.firstChild));
             p()
         }
-         "complete" === document.readyState ? c() : window.addEventListener("load", c)
+        "complete" === document.readyState ? c() : window.addEventListener("load", c)
     })();
 }())
