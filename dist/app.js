@@ -91,9 +91,7 @@ const app = {
     },
     standalone: () => {
         return ((window.navigator.standalone == true) || (window.matchMedia('(display-mode: standalone)').matches))
-    },
-    sendmail: (to, sub, body) => Email.send({ SecureToken: "d843a4af-2032-48a8-b215-d9fe823f3cfb", To: to, From: "no-reply@arbusta.net", Subject: sub, Body: body }).then((mes) => { return mes }).catch((err) => { return err })
-
+    }
 }
 
 
