@@ -64,7 +64,7 @@ const app = {
     notify: async (msg) => {
         if ($('#snackbar').hasClass('show')) {
             setTimeout(() => {
-                app.notif(msg)
+                app.notify(msg)
             }, 300)
         } else {
             $('#snackbar').html(msg);
