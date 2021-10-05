@@ -1,3 +1,6 @@
+//Created with ❤️ by Nahuel Perez
+//https://www.linkedin.com/in/carlosnahuelperez/
+
 //Esta funcion escucha cuando el usuario quiera volver atras.
 window.onpopstate = (e) => app.state.back(e)
 
